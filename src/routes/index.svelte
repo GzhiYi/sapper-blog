@@ -1,6 +1,5 @@
 <script lang="typescript">
-    export let title: string = "Hello TypeScript";
-    // VS Code will show you an "Unexpected token" error; this is okay at this point
+		export let title: string = "Hello TypeScript";
 </script>
 <style>
 	h1, figure, p {
