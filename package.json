@@ -11,7 +11,8 @@
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
     "dev:tailwindcss": "postcss static/tailwind.css -o static/main.css -w",
-    "build:tailwindcss": "NODE_ENV=production postcss static/tailwind.css -o static/main.css"
+    "build:tailwindcss": "NODE_ENV=production postcss static/tailwind.css -o static/main.css",
+    "deploy": "bash deploy.sh"
   },
   "dependencies": {
     "chokidar": "^3.4.0",

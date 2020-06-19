@@ -1,13 +1,11 @@
 const fs = require('fs')
 const path = require('path')
-const pify = require('pify')
 const chokidar = require('chokidar')
 const marked = require('marked')
-let posts = []
+const hljs = require("highlight.js")
 marked.setOptions({
 	renderer: new marked.Renderer(),
 	highlight: function (code, language) {
-		const hljs = require("highlight.js")
 		const validLanguage = hljs.getLanguage(language) ? language : "plaintext"
 		return hljs.highlight(validLanguage, code).value
 	},
