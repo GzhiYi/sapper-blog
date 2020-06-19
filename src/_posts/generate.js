@@ -2,11 +2,13 @@ const fs = require('fs')
 const path = require('path')
 const chokidar = require('chokidar')
 const marked = require('marked')
-const hljs = require("highlight.js")
+
 marked.setOptions({
 	renderer: new marked.Renderer(),
 	highlight: function (code, language) {
+		const hljs = require("highlight.js")
 		const validLanguage = hljs.getLanguage(language) ? language : "plaintext"
+		console.log('validLanguage', validLanguage)
 		return hljs.highlight(validLanguage, code).value
 	},
 	pedantic: false,
@@ -39,6 +41,7 @@ const compile = () => {
 		for (let fileName of dirs) {
 			if (/.md/.test(fileName)) {
 				const fileData = fs.readFileSync(`./${fileName}`, 'utf-8')
+				console.log('**', marked)
 				inPosts.push({
 					title: fileName,
 					path: fileName.split('.')[0],

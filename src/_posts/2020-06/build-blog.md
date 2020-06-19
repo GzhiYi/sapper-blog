@@ -6,3 +6,7 @@
 2. Sapper
 3. Tailwindcss
 4. Typescript
+
+```bash
+Let's go
+```
