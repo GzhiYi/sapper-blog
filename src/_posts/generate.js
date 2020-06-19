@@ -19,17 +19,33 @@ marked.setOptions({
 	smartypants: false,
 	xhtml: false,
 })
+
+// 遍历目录后返回目录所有文件
+const getAllFiles = function (dirPath, arrayOfFiles) {
+	files = fs.readdirSync(dirPath)
+	arrayOfFiles = arrayOfFiles || []
+	files.forEach(function (file) {
+		if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+			arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
+		} else {
+			arrayOfFiles.push(path.join(dirPath, "/", file))
+		}
+	})
+	return arrayOfFiles
+}
+
 const compile = () => {
-	console.log('come in')
 	try {
-		const dirs = fs.readdirSync('./')
+		const dirs = getAllFiles('./')
+		console.log('dir', dirs)
 		const inPosts = []
 		for (let fileName of dirs) {
 			if (/.md/.test(fileName)) {
 				const fileData = fs.readFileSync(`./${fileName}`, 'utf-8')
 				inPosts.push({
 					title: fileName,
-					slug: fileName,
+					path: fileName,
+					slug: fileName.split('.')[0],
 					html: marked(fileData)
 				})
 			}
