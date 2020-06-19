@@ -37,15 +37,14 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
 const compile = () => {
 	try {
 		const dirs = getAllFiles('./')
-		console.log('dir', dirs)
 		const inPosts = []
 		for (let fileName of dirs) {
 			if (/.md/.test(fileName)) {
 				const fileData = fs.readFileSync(`./${fileName}`, 'utf-8')
 				inPosts.push({
 					title: fileName,
-					path: fileName,
-					slug: fileName.split('.')[0],
+					path: fileName.split('.')[0],
+					slug: fileName.replace('/', '_'),
 					html: marked(fileData)
 				})
 			}
