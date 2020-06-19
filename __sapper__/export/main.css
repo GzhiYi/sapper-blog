@@ -80,11 +80,6 @@ a {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-
-strong {
-  font-weight: bolder;
-}
-
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
@@ -110,10 +105,6 @@ code {
 /**
  * Remove the border on images inside links in IE 10.
  */
-
-img {
-  border-style: none;
-}
 
 /* Forms
    ========================================================================== */
@@ -222,7 +213,6 @@ img {
 
 h1,
 h2,
-figure,
 p,
 pre {
   margin: 0;
@@ -305,10 +295,6 @@ html {
  * https://github.com/tailwindcss/tailwindcss/issues/362
  */
 
-img {
-  border-style: solid;
-}
-
 h1,
 h2 {
   font-size: inherit;
@@ -353,22 +339,12 @@ code {
  * https://github.com/mozdevs/cssremedy/issues/14
  */
 
-img {
-  display: block;
-  vertical-align: middle;
-}
-
 /**
  * Constrain images and videos to the parent width and preserve
  * their instrinsic aspect ratio.
  *
  * https://github.com/mozdevs/cssremedy/issues/14
  */
-
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 .block {
   display: block;
@@ -390,14 +366,4 @@ img {
 
 .relative {
   position: relative;
-}
-
-.text-green-300 {
-  --text-opacity: 1;
-  color: #9ae6b4;
-  color: rgba(154, 230, 180, var(--text-opacity));
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
