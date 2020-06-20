@@ -2,13 +2,27 @@ const fs = require('fs')
 const path = require('path')
 const chokidar = require('chokidar')
 const marked = require('marked')
+const fm = require('front-matter')
+const renderer = new marked.Renderer()
 
+renderer.image = function (href, title, text) {
+	if (title) {
+		var size = title.split('x')
+		if (size[1]) {
+			size = 'width=' + size[0] + ' height=' + size[1];
+		} else {
+			size = 'width=' + size[0]
+		}
+	} else {
+		size = ''
+	}
+	return ('<img align="center" style="width: 100%;" data-zoomable src="' + href + '" alt="' + text + '" ' + size + '>')
+}
 marked.setOptions({
-	renderer: new marked.Renderer(),
+	renderer,
 	highlight: function (code, language) {
 		const hljs = require("highlight.js")
 		const validLanguage = hljs.getLanguage(language) ? language : "plaintext"
-		console.log('validLanguage', validLanguage)
 		return hljs.highlight(validLanguage, code).value
 	},
 	pedantic: false,
@@ -41,12 +55,14 @@ const compile = () => {
 		for (let fileName of dirs) {
 			if (/.md/.test(fileName)) {
 				const fileData = fs.readFileSync(`./${fileName}`, 'utf-8')
-				console.log('**', marked)
+				const fmData = fm(fileData)
+				const rmSuffix = fileName.split('.')[0]
 				inPosts.push({
 					title: fileName,
-					path: fileName.split('.')[0],
-					slug: fileName.replace('/', '_'),
-					html: marked(fileData)
+					path: rmSuffix,
+					slug: rmSuffix.replace('/', '_'),
+					html: marked(fmData.body),
+					fmData
 				})
 			}
 		}
