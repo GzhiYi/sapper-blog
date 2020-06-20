@@ -43,7 +43,7 @@ export const [
 
 ## 将Markdown转为js文件
 
-需要用到[Markjs](https://markjs.io/)。
+需要用到[Markedjs](https://github.com/markedjs/marked)。
 
 使用也是简单粗暴：
 
