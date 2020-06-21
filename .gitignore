@@ -6,3 +6,4 @@ yarn-error.log
 /__sapper__/build
 /__sapper__/dev
 /static/main.css
+/src/routes/blog/_posts.js

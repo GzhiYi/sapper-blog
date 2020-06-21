@@ -14,6 +14,22 @@
 </script>
 
 <script>
+	import { onMount, onDestroy } from 'svelte'
+	let zoom = null
+	onMount(() => {
+		try {
+			import('../../../static/medium-zoom.esm.js').then(mediumZoom => {
+				zoom = mediumZoom.default('[data-zoomable]')
+			})
+		} catch (error) {
+			console.log('import error', error)
+		}
+	})
+	onDestroy(() => {
+		if (zoom) {
+			zoom.detach()
+		}
+	})
 	export let post;
 </script>
 
@@ -33,10 +49,9 @@
 
 	.content :global(pre) {
 		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
-		padding: 0.5em;
-		border-radius: 2px;
-		overflow-x: auto;
+    padding: 0.5em;
+    border-radius: 0.3rem;
+    overflow-x: auto;
 	}
 
 	.content :global(pre) :global(code) {
@@ -49,15 +64,17 @@
 	}
 
 	.content :global(li) {
-		margin: 0 0 0.5em 0;
+		margin: 0 0 0.2em 0;
+	}
+
+	.content :global(p) {
+		margin: 0.3rem 0 1rem;
 	}
 </style>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{post.fmData.attributes.title}</title>
 </svelte:head>
-
-<h1>{post.title}</h1>
 
 <div class='content'>
 	{@html post.html}
