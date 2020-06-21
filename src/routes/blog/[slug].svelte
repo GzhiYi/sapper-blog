@@ -18,7 +18,7 @@
 	let zoom = null
 	onMount(() => {
 		try {
-			import('medium-zoom').then(mediumZoom => {
+			import('../../../static/medium-zoom.esm.js').then(mediumZoom => {
 				zoom = mediumZoom.default('[data-zoomable]')
 			})
 		} catch (error) {
