@@ -56,6 +56,7 @@ const compile = () => {
 			if (/.md/.test(fileName)) {
 				const fileData = fs.readFileSync(`./${fileName}`, 'utf-8')
 				const fmData = fm(fileData)
+				console.log('fm', fmData)
 				const rmSuffix = fileName.split('.')[0]
 				inPosts.push({
 					title: fileName,
