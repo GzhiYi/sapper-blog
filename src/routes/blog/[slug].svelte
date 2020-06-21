@@ -17,9 +17,13 @@
 	import { onMount, onDestroy } from 'svelte'
 	let zoom = null
 	onMount(() => {
-		import('medium-zoom').then(mediumZoom => {
-      zoom = mediumZoom.default('[data-zoomable]')
-    })
+		try {
+			import('medium-zoom').then(mediumZoom => {
+				zoom = mediumZoom.default('[data-zoomable]')
+			})
+		} catch (error) {
+			console.log('import error', error)
+		}
 	})
 	onDestroy(() => {
 		if (zoom) {
