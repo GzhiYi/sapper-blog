@@ -1,6 +1,6 @@
 ---
 title: 用sapper构建一个博客
-date: 2020年6月20
+date: 2020-06-20
 ---
 
 # 用sapper构建一个博客
