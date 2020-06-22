@@ -84,9 +84,16 @@
 
 	.content :global(pre) {
 		background-color: #f9f9f9;
-    padding: 0.5em;
     border-radius: 0.3rem;
-    overflow-x: auto;
+		overflow-x: auto;
+		line-height: 1.2rem;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border: 2px solid #eee;
+	}
+
+	.content :global(code) {
+    font-size: 0.8rem;
 	}
 
 	.content :global(pre) :global(code) {
