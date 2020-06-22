@@ -24,6 +24,17 @@
 		} catch (error) {
 			console.log('import error', error)
 		}
+		var gitalk = new Gitalk({
+			clientID: '1ceb416f2f4ca6ba6c84',
+			clientSecret: '9feefebe3e29a96416c667fc8f2f633edf3c51da',
+			repo: 'sapper-blog',
+			owner: 'GzhiYi',
+			admin: ['GzhiYi'],
+			id: location.pathname,      // Ensure uniqueness and length less than 50
+			distractionFreeMode: false  // Facebook-like distraction free mode
+		})
+
+		gitalk.render('gitalk-container')
 	})
 	onDestroy(() => {
 		if (zoom) {
@@ -71,10 +82,6 @@
 		margin: 0.3rem 0 1rem;
 	}
 </style>
-
-<svelte:head>
-	<title>{post.fmData.attributes.title}</title>
-</svelte:head>
 
 <div class='content'>
 	{@html post.html}
