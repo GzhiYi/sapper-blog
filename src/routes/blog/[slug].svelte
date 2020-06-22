@@ -30,7 +30,7 @@
 			zoom.detach()
 		}
 	})
-	export let post;
+	export let post
 </script>
 
 <style>
@@ -79,3 +79,4 @@
 <div class='content'>
 	{@html post.html}
 </div>
+<div id="gitalk-container"></div>
