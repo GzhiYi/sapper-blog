@@ -2,14 +2,15 @@
 title: 使用github actions自动编译部署sapper-blog
 description: 使用github actions打包部署sapper项目并部署到github pages。
 keywords: github actions,sapper,github pages
+labels: ['前端']
 date: 2020-06-22
 ---
-
-# 使用github actions自动编译部署sapper-blog
 
 之前构建好了的[博客](/blog/2020-06_build-blog)，通过编写一个脚本实现本地自动化部署。脚本实现的功能就是在本地处理项目的打包并将静态文件推送到远端的`gh-pages`分支以实现静态文件部署。在了解github actions之后，决定增加一个自动化打包部署的workflow。这样就可以将编译打包的操作完全放置在”云端“。
 
 ## 编写workflow配置文件
+
+在项目根目录创建`.github/workflows/main.yml`
 
 ```yaml
 name: Deploy GitHub Pages

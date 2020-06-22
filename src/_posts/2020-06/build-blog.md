@@ -2,10 +2,9 @@
 title: 用sapper构建一个博客
 description: 用sapper构建一个博客，相关技术：svelte、sapper、tailwindcss、typescript。编写markdown后一键部署到github pages。
 keywords: sapper，博客，svelte，tailwindcss，typescript，github pages，markdown
+labels: ['前端', '技术']
 date: 2020-06-20
 ---
-
-# 用sapper构建一个博客
 
 发现自己好久没有写博客了。之前在github开了一个仓库，在仓库的[issue区](https://github.com/GzhiYi/blog/issues)写一些内容。issue区体验挺好的，可以refer上项目代码，也可以追加评论。但我想自己写一个博客，不需要很多花里胡哨的功能，只对内容专注，极大的好处是，可以随心所欲的编写自己喜欢的页面样式。刚好最近有接触了下[svelte](https://svelte.dev/)，就顺带的用[sapper](https://sapper.svelte.dev/)写一个静态页面。
 
@@ -135,7 +134,7 @@ watcher
 	})
 ```
 
-# 部署到github pages
+## 部署到github pages
 
 对于sapper，执行export命令生成静态文件。
 
