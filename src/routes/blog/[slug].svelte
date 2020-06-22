@@ -84,6 +84,8 @@
 </style>
 <svelte:head>
 	<title>{post.fmData.attributes.title}</title>
+	<meta name="description" content="{post.fmData.attributes.description || `GzhiYi's blog`}">
+	<meta name="keywords" content="{post.fmData.attributes.keywords || `GzhiYi's blog`}">
 </svelte:head>
 <div class='content'>
 	{@html post.html}

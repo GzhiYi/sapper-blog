@@ -1,5 +1,7 @@
 ---
 title: 日环食
+description: 日环食，10年一遇，还有自己的一点小思考。
+keywords: 日环食
 date: 2020-06-21
 ---
 

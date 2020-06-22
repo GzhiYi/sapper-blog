@@ -1,5 +1,7 @@
 ---
 title: 使用github actions自动编译部署sapper-blog
+description: 使用github actions打包部署sapper项目并部署到github pages。
+keywords: github actions,sapper,github pages
 date: 2020-06-22
 ---
 

@@ -1,5 +1,7 @@
 ---
 title: 用sapper构建一个博客
+description: 用sapper构建一个博客，相关技术：svelte、sapper、tailwindcss、typescript。编写markdown后一键部署到github pages。
+keywords: sapper，博客，svelte，tailwindcss，typescript，github pages，markdown
 date: 2020-06-20
 ---
 
