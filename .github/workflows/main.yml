@@ -28,3 +28,10 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.GH_PAGES }}
           BRANCH: gh-pages
           FOLDER: __sapper__/export
+      
+      # push推送
+      - name: Send Push Notification
+      uses: techulus/push-github-action@1.0.0
+      env:
+        API_KEY: ${{ secrets.PUSH_KEY }}
+        MESSAGE: "已完成blog部署"
