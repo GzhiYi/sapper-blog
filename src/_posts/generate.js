@@ -56,7 +56,6 @@ const compile = () => {
 			if (/.md/.test(fileName)) {
 				const fileData = fs.readFileSync(`./${fileName}`, 'utf-8')
 				const fmData = fm(fileData)
-				console.log('fm', fmData)
 				const rmSuffix = fileName.split('.')[0]
 				inPosts.push({
 					title: fileName,
@@ -70,7 +69,7 @@ const compile = () => {
 		inPosts.forEach(post => {
 			post.html = post.html.replace(/^\t{3}/gm, '');
 		});
-		console.log('inPost', inPosts)
+		inPosts.sort((a, b) => new Date(a.fmData.attributes.date) < new Date(b.fmData.attributes.date) ? 1 : -1)
 		const outPutContent = `export default ${JSON.stringify(inPosts)}`
 		fs.writeFile('../routes/blog/_posts.js', outPutContent, err => {
 			if (err) return console.log('生成post失败', err)

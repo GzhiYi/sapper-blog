@@ -19,7 +19,7 @@ jobs:
 
       # 生成静态文件
       - name: Build
-        run: npm install && npm run export && cp -i CNAME __sapper__/export
+        run: npm install && cd src/_posts && node compile.js && cd - && npm run export && cp -i CNAME __sapper__/export
 
       # 部署到 GitHub Pages
       - name: Deploy
