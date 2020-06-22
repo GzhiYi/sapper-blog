@@ -106,6 +106,10 @@ code {
  * Remove the border on images inside links in IE 10.
  */
 
+img {
+  border-style: none;
+}
+
 /* Forms
    ========================================================================== */
 
@@ -295,6 +299,10 @@ html {
  * https://github.com/tailwindcss/tailwindcss/issues/362
  */
 
+img {
+  border-style: solid;
+}
+
 h1,
 h2 {
   font-size: inherit;
@@ -339,12 +347,22 @@ code {
  * https://github.com/mozdevs/cssremedy/issues/14
  */
 
+img {
+  display: block;
+  vertical-align: middle;
+}
+
 /**
  * Constrain images and videos to the parent width and preserve
  * their instrinsic aspect ratio.
  *
  * https://github.com/mozdevs/cssremedy/issues/14
  */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 .block {
   display: block;
@@ -360,10 +378,18 @@ code {
   clear: both;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .absolute {
   position: absolute;
 }
 
 .relative {
   position: relative;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
