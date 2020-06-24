@@ -13,10 +13,16 @@
 	</p>
 	{@html post.html}
 </div>
-<div class="divide relative">
+{#if 'data' in likeData}
+	<div class="clap-here flex cursor-pointer justify-center">
+		<img src="clap.png" class="w-8 h-8" alt="" on:click={doLike}>
+		<span class="ml-1">{likeData.data || ''}</span>
+	</div>
+{/if}
+<!-- <div class="divide relative">
 	<span class="line"></span>
 	<img class="absolute w-6 h-6 cat" src="favicon.png" alt="catcat!">
-</div>
+</div> -->
 <div id="gitalk-container"></div>
 <script context="module">
 	export async function preload({ params, query }) {
@@ -35,14 +41,17 @@
 
 <script>
 	import { onMount, onDestroy } from 'svelte'
+	import Fingerprint2 from 'fingerprintjs2'
 	let zoom = null
+	let storeFinger = ''
+	let likeData = {}
 	onMount(() => {
 		try {
 			import('../../../static/medium-zoom.esm.js').then(mediumZoom => {
 				zoom = mediumZoom.default('[data-zoomable]')
 			})
 		} catch (error) {
-			console.log('import error', error)
+			console.log('import zoom error', error)
 		}
 		const gitalk = new Gitalk({
 			clientID: '1ceb416f2f4ca6ba6c84',
@@ -55,7 +64,76 @@
 		})
 
 		gitalk.render('gitalk-container')
+
+		getFinger()
 	})
+	function getFinger() {
+		if (window.requestIdleCallback) {
+			requestIdleCallback(function () {
+				Fingerprint2.get(function (components) {
+					console.log(components) // an array of components: {key: ..., value: ...}
+					const values = components.map(function (component) {
+						return component.value
+					})
+					getLikeData(Fingerprint2.x64hash128(values.join(''), 31))
+				})
+			})
+		} else {
+			setTimeout(function () {
+				Fingerprint2.get(function (components) {
+					console.log(components) // an array of components: {key: ..., value: ...}
+					const values = components.map(function (component) {
+						return component.value
+					})
+					getLikeData(Fingerprint2.x64hash128(values.join(''), 31))
+				})  
+			}, 500)
+		}
+	}
+
+	async function getLikeData(finger) {
+		storeFinger = finger
+		const res = await fetch(
+			'https://us-central1-sapper-blog-f8d89.cloudfunctions.net/getLikes',
+			{
+				method: 'POST',
+				mode: 'cors',
+				headers: new Headers({
+					'Content-Type': 'application/json'
+				}),
+				body: JSON.stringify({
+					title: document.title,
+					id: finger
+				})
+			}
+		)
+		likeData = await res.json()
+		console.log('likeData', likeData)
+	}
+
+	async function doLike() {
+		const res = await fetch(
+			'https://us-central1-sapper-blog-f8d89.cloudfunctions.net/newLike',
+			{
+				method: 'POST',
+				mode: 'cors',
+				headers: new Headers({
+					'Content-Type': 'application/json'
+				}),
+				body: JSON.stringify({
+					title: document.title,
+					id: storeFinger
+				})
+			}
+		)
+		const resJson = await res.json()
+		console.log('res', resJson)
+		if (resJson.code === 1) {
+			alert(resJson.message)
+		} else {
+			getLikeData()
+		}
+	}
 	onDestroy(() => {
 		if (zoom) {
 			zoom.detach()
