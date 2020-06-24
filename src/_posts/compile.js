@@ -8,7 +8,7 @@ renderer.image = function (href, title, text) {
 	if (title) {
 		var size = title.split('x')
 		if (size[1]) {
-			size = 'width=' + size[0] + ' height=' + size[1];
+			size = 'width=' + size[0] + ' height=' + size[1]
 		} else {
 			size = 'width=' + size[0]
 		}
@@ -66,8 +66,9 @@ const compile = () => {
 			}
 		}
 		inPosts.forEach(post => {
-			post.html = post.html.replace(/^\t{3}/gm, '');
-		});
+			post.html = post.html.replace(/^\t{3}/gm, '')
+		})
+		inPosts.sort((a, b) => new Date(a.fmData.attributes.date) < new Date(b.fmData.attributes.date) ? 1 : -1)
 		const outPutContent = `export default ${JSON.stringify(inPosts)}`
 		fs.writeFile('../routes/blog/_posts.js', outPutContent, err => {
 			if (err) return console.log('生成post失败', err)
