@@ -364,12 +364,24 @@ img {
   height: auto;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .block {
   display: block;
 }
 
 .inline-block {
   display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .clearfix:after {
@@ -382,6 +394,14 @@ img {
   height: 1.5rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .absolute {
   position: absolute;
 }
@@ -392,4 +412,8 @@ img {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
