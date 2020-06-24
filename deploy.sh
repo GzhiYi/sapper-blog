@@ -7,9 +7,6 @@ echo "[building files]"
 cd -
 yarn run export
 
-echo "[add CNAME]"
-cp -i CNAME __sapper__/export
-
 echo "[commit changes]"
 git add .
 git commit -m 'new changes'
