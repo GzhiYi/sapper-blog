@@ -120,6 +120,7 @@
 	}
 
 	async function doLike() {
+		loading = true
 		const res = await fetch(
 			'https://us-central1-sapper-blog-f8d89.cloudfunctions.net/newLike',
 			{
@@ -137,6 +138,7 @@
 		const resJson = await res.json()
 		if (resJson.code === 1) {
 			alert(resJson.message)
+			loading = false
 		} else {
 			getLikeData()
 		}
@@ -198,7 +200,7 @@
 		margin: 0.3rem 0 1rem;
 	}
 
-	.divide {
+	/* .divide {
 		width: 100%;
 	}
 	.divide .line {
@@ -213,7 +215,7 @@
     left: 0;
     right: 0;
     margin: auto;
-	}
+	} */
 	.desc{
 		color: #757575;
 		font-size: 0.9rem;
