@@ -1,0 +1,3 @@
+[submodule "blog-like"]
+	path = blog-like
+	url = git@github.com:GzhiYi/blog-like.git
