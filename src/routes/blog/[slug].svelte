@@ -15,8 +15,12 @@
 </div>
 {#if 'data' in likeData}
 	<div class="clap-here flex cursor-pointer justify-center">
-		<img src="clap.png" class="w-8 h-8" alt="" on:click={doLike}>
-		<span class="ml-1">{likeData.data || ''}</span>
+		{#if loading}
+			<span>处理中...</span>
+		{:else}
+			<img src="clap.png" class="w-8 h-8" alt="" on:click={doLike}>
+			<span class="ml-1">{likeData.data || ''}</span>
+		{/if}
 	</div>
 {/if}
 <!-- <div class="divide relative">
@@ -45,6 +49,7 @@
 	let zoom = null
 	let storeFinger = ''
 	let likeData = {}
+	let loading = false
 	onMount(() => {
 		try {
 			import('../../../static/medium-zoom.esm.js').then(mediumZoom => {
@@ -71,7 +76,6 @@
 		if (window.requestIdleCallback) {
 			requestIdleCallback(function () {
 				Fingerprint2.get(function (components) {
-					console.log(components) // an array of components: {key: ..., value: ...}
 					const values = components.map(function (component) {
 						return component.value
 					})
@@ -81,7 +85,6 @@
 		} else {
 			setTimeout(function () {
 				Fingerprint2.get(function (components) {
-					console.log(components) // an array of components: {key: ..., value: ...}
 					const values = components.map(function (component) {
 						return component.value
 					})
@@ -93,22 +96,27 @@
 
 	async function getLikeData(finger) {
 		storeFinger = finger
-		const res = await fetch(
-			'https://us-central1-sapper-blog-f8d89.cloudfunctions.net/getLikes',
-			{
-				method: 'POST',
-				mode: 'cors',
-				headers: new Headers({
-					'Content-Type': 'application/json'
-				}),
-				body: JSON.stringify({
-					title: document.title,
-					id: finger
-				})
-			}
-		)
-		likeData = await res.json()
-		console.log('likeData', likeData)
+		loading = true
+		try {
+			const res = await fetch(
+				'https://us-central1-sapper-blog-f8d89.cloudfunctions.net/getLikes',
+				{
+					method: 'POST',
+					mode: 'cors',
+					headers: new Headers({
+						'Content-Type': 'application/json'
+					}),
+					body: JSON.stringify({
+						title: document.title,
+						id: finger
+					})
+				}
+			)
+			likeData = await res.json()
+		} catch (error) {
+			console.error('Get like data error', error)
+		}
+		loading = false
 	}
 
 	async function doLike() {
@@ -127,7 +135,6 @@
 			}
 		)
 		const resJson = await res.json()
-		console.log('res', resJson)
 		if (resJson.code === 1) {
 			alert(resJson.message)
 		} else {

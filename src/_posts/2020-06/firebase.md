@@ -17,7 +17,7 @@ date: 2020-06-28
 
 ## Firebase
 
-对于firebase的介绍，最好是直接进入[主站](firebase.google.com)开通spark版尝试。
+对于firebase的介绍，最好是直接进入[主站](https://firebase.google.com)开通spark版尝试。
 
 使用firebase，就可以很好的解决第一个问题。spark方案提供免费的空间支持，对于博客这种量级小，交互少的页面来说再适合不过了。
 
@@ -73,9 +73,9 @@ mkdir blog-like && cd blog-like && firebase init
 
 4. 函数编写。
 
-需要两个接口，一个是新增点赞接口，路由为：`newLike`，一个是获取点赞数据的接口，路由为：`getLikes`。
+需要两个接口，一个是新增点赞接口，路由为：`/newLike`，一个是获取点赞数据的接口，路由为：`/getLikes`。
 
- - newLike。先判断该用户是否已经点过赞。需要存储的数据，文章标题、点赞时间、用户指纹。
+ - newLike。先判断该用户是否已经点过赞。需要存储的数据：文章标题、点赞时间、用户指纹。
  - getLikes。先获取该文章点赞总数，在判断用户是否已经点过赞。
 
 有了以下基本代码：
@@ -84,9 +84,9 @@ mkdir blog-like && cd blog-like && firebase init
 
 ```json
 {
-		id: 用户指纹，
-  	likeTime：点赞时间，
-  	postTitle：文章标题
+    id: 用户指纹，
+    likeTime：点赞时间，
+    postTitle：文章标题
 }
 ```
 
