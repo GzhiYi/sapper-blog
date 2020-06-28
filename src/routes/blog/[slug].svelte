@@ -27,7 +27,7 @@
 	<span class="line"></span>
 	<img class="absolute w-6 h-6 cat" src="favicon.png" alt="catcat!">
 </div> -->
-<div id="vcomments" class="mt-8"></div>
+<div id="vcomments" class="my-8"></div>
 <!-- <div id="gitalk-container"></div> -->
 <script context="module">
 	export async function preload({ params, query }) {
@@ -74,7 +74,10 @@
 		new Valine({
 			el: '#vcomments',
 			appId: 'jMRbNJRVqVMPkivFo08DMhO3-gzGzoHsz',
-			appKey: 'umugMHpa6HfcC81tB6dl8TiE'
+			appKey: 'umugMHpa6HfcC81tB6dl8TiE',
+			placeholder: '欢迎评论留言，我都会看的～',
+			meta: ['nick', 'mail'],
+			visitor: true
 		})
 
 		getFinger()
@@ -237,5 +240,8 @@
 	}
 	.label:first-child {
 		margin-left: 1rem;
+	}
+	.clap-here {
+		margin: 50px 0;
 	}
 </style>
