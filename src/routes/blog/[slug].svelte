@@ -75,7 +75,7 @@
 				if (config.url.includes('classes/Comment') && config.method === 'POST') {
 					console.log('请求发起前', config.body)
 					fetch(
-						`https://push.techulus.com/api/v1/notify/0429893b-781b-4885-b153-c20b3a5c5049?title=文章有新回复&body=${config.body.substr(12, 30)}`,
+						`https://push.techulus.com/api/v1/notify/0429893b-781b-4885-b153-c20b3a5c5049?title=${location.pathname || '文章'}有新回复&body=${config.body.substr(12, 30)}`,
 						{
 							method: 'POST',
 							mode: 'cors',
