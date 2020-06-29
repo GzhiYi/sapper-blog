@@ -185,6 +185,13 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
 	*/
+	.content :global(a) {
+		text-decoration: underline !important;
+    text-decoration-color: rgba(255, 12, 0, 0.1) !important;
+	}
+	.content :global(a:hover) {
+		color: rgba(255, 12, 0, 0.5);
+	}
 	.content :global(h1) {
 		margin: 0 0 0.9rem;
 	}
@@ -218,7 +225,8 @@
 	}
 
 	.content :global(li) {
-		margin: 0 0 0.2em 0;
+		margin: 0 0 0.2em 2rem;
+		list-style-type: decimal;
 	}
 
 	.content :global(p) {
