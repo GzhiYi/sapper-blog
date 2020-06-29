@@ -225,7 +225,7 @@
 	}
 
 	.content :global(li) {
-		margin: 0 0 0.2em 2rem;
+		margin: 0 0 0.2em 0;
 		list-style-type: decimal;
 	}
 
