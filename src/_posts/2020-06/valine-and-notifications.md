@@ -63,32 +63,32 @@ https://push.techulus.com/api/v1/notify/{YOU API KEY}?title=Push by Techulus&bod
 
    ```javascript
    ah.proxy({
-   			//请求发起前进入
-   			onRequest: (config, handler) => {
-   				if (config.url.includes('classes/Comment') && config.method === 'POST') {
-   					console.log('请求发起前', config.body)
-   					fetch(
-   						`https://push.techulus.com/api/v1/notify/${YOU API KEY}?title=${location.pathname || '文章'}有新回复&body=${config.body.substr(12, 30)}`,
-   						{
-   							method: 'POST',
-   							mode: 'cors',
-   							headers: new Headers({
-   								'Content-Type': 'application/json'
-   							})
-   						}
-   					)
-   				}
-   				handler.next(config);
-   			},
-   			//请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功
-   			onError: (err, handler) => {
-   					handler.next(err)
-   			},
-   			//请求成功后进入
-   			onResponse: (response, handler) => {
-   					handler.next(response)
-   			}
-   		})
+			//请求发起前进入
+			onRequest: (config, handler) => {
+				if (config.url.includes('classes/Comment') && config.method === 'POST') {
+					console.log('请求发起前', config.body)
+					fetch(
+						`https://push.techulus.com/api/v1/notify/${YOU API KEY}?title=${location.pathname || '文章'}有新回复&body=${config.body.substr(12, 30)}`,
+						{
+							method: 'POST',
+							mode: 'cors',
+							headers: new Headers({
+								'Content-Type': 'application/json'
+							})
+						}
+					)
+				}
+				handler.next(config);
+			},
+			//请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功
+			onError: (err, handler) => {
+					handler.next(err)
+			},
+			//请求成功后进入
+			onResponse: (response, handler) => {
+					handler.next(response)
+			}
+		})
    ```
 
    更多关于ajax-hook的文档，参阅：[ajax-hook](https://github.com/wendux/Ajax-hook)	

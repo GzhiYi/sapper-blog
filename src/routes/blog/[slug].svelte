@@ -223,6 +223,9 @@
 	.content :global(ul) {
 		line-height: 1.5;
 	}
+	.content :global(ol) {
+		padding-left: 1rem;
+	}
 
 	.content :global(li) {
 		margin: 0 0 0.2em 0;
