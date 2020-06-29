@@ -69,6 +69,33 @@
 		})
 
 		getFinger()
+		ah.proxy({
+			//请求发起前进入
+			onRequest: (config, handler) => {
+				if (config.url.includes('classes/Comment') && config.method === 'POST') {
+					console.log('请求发起前', config.body)
+					fetch(
+						`https://push.techulus.com/api/v1/notify/0429893b-781b-4885-b153-c20b3a5c5049?title=文章有新回复&body=${config.body.substr(12, 30)}`,
+						{
+							method: 'POST',
+							mode: 'cors',
+							headers: new Headers({
+								'Content-Type': 'application/json'
+							})
+						}
+					)
+				}
+				handler.next(config);
+			},
+			//请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功
+			onError: (err, handler) => {
+					handler.next(err)
+			},
+			//请求成功后进入
+			onResponse: (response, handler) => {
+					handler.next(response)
+			}
+		})
 	})
 	function getFinger() {
 		if (window.requestIdleCallback) {
