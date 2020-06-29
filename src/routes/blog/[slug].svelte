@@ -59,25 +59,13 @@
 		} catch (error) {
 			console.log('import zoom error', error)
 		}
-		// const gitalk = new Gitalk({
-		// 	clientID: '1ceb416f2f4ca6ba6c84',
-		// 	clientSecret: '9feefebe3e29a96416c667fc8f2f633edf3c51da',
-		// 	repo: 'sapper-blog',
-		// 	owner: 'GzhiYi',
-		// 	admin: ['GzhiYi'],
-		// 	id: document.title,  // Ensure uniqueness and length less than 50
-		// 	distractionFreeMode: false  // Facebook-like distraction free mode
-		// })
-
-		// gitalk.render('gitalk-container')
-
 		new Valine({
 			el: '#vcomments',
 			appId: 'jMRbNJRVqVMPkivFo08DMhO3-gzGzoHsz',
 			appKey: 'umugMHpa6HfcC81tB6dl8TiE',
 			placeholder: '欢迎评论留言，我都会看的～',
 			meta: ['nick', 'mail'],
-			visitor: true
+			path: location.pathname
 		})
 
 		getFinger()
