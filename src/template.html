@@ -4,6 +4,7 @@
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
 	<meta name='theme-color' content='#333333'>
+	<meta name="google-site-verification" content="Mrn4dXO3Z_939geeswIgr2wIpspT6n7X5cX1Tjp69Ko" />
 
 	%sapper.base%
 
@@ -12,8 +13,10 @@
 	<link rel='manifest' href='manifest.json' crossorigin='use-credentials'>
 	<link rel='icon' type='image/png' href='favicon.png'>
 	<link href="atom-one-light.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
 
+	<script async src='//unpkg.com/valine/dist/Valine.min.js'></script>
+	<script async src="https://unpkg.com/ajax-hook@2.0.3/dist/ajaxhook.min.js"></script>
 	<!-- Sapper generates a <style> tag containing critical CSS
 	     for the current page. CSS for the rest of the app is
 	     lazily loaded when it precaches secondary pages -->
@@ -32,9 +35,10 @@
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
 	%sapper.scripts%
-	<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> -->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170295070-1"></script>
+	
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
