@@ -1,5 +1,5 @@
 ---
-title: Docker部署nuxtjs应用
+title: Docker安装easymock
 description: 为了方便本地mock接口，需要在本地用docker跑一个easy-mock服务。第一时间想到docker运行，方便管理和使用。基本上是非常简单就可以跑起来的。所以在这记录一下安装easy-mock的步骤，也为了下次更快的安装。
 keywords: docker,esaymock,api
 labels: ['前端']
