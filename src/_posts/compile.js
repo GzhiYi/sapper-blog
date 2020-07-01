@@ -59,7 +59,7 @@ const compile = () => {
 				inPosts.push({
 					title: fileName,
 					path: rmSuffix,
-					slug: rmSuffix.replace('/', '_'),
+					slug: rmSuffix.replace('/', '_').replace('/', '_'),
 					html: marked(fmData.body),
 					fmData
 				})
