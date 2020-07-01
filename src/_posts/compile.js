@@ -70,7 +70,7 @@ const compile = () => {
 		})
 		inPosts.sort((a, b) => new Date(a.fmData.attributes.date) < new Date(b.fmData.attributes.date) ? 1 : -1)
 		const outPutContent = `export default ${JSON.stringify(inPosts)}`
-		fs.writeFile('../routes/_posts.js', outPutContent, err => {
+		fs.writeFile('../routes/blog/_posts.js', outPutContent, err => {
 			if (err) return console.log('生成post失败', err)
 			console.log('已生成_posts.js')
 		})
