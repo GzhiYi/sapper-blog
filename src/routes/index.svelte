@@ -22,9 +22,9 @@
 </style>
 
 <svelte:head>
-	<title>GzhiYi's blog</title>
-	<meta name="description" content="web前端工程师，编程是一份兴趣，热爱着生活。">
-	<meta name="keywords" content="frontend开发者，熟悉web前端，vue，React，svelte，小程序等等。">
+	<title>GzhiYi's Blog</title>
+	<meta name="description" content="一枚前端工程师，编程是一份兴趣，热爱着生活。喜欢开发一些有兴趣的产品，践行程序员的乐趣。">
+	<meta name="keywords" content="前端开发者，web，vue，React，svelte，小程序，JavaScript，CSS，blog">
 </svelte:head>
 
 <ul>

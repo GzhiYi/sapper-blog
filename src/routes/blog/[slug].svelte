@@ -1,7 +1,7 @@
 <svelte:head>
-	<title>{post.fmData.attributes.title}-GzhiYi's blog</title>
-	<meta name="description" content="{post.fmData.attributes.description || `GzhiYi's blog`}">
-	<meta name="keywords" content="{post.fmData.attributes.keywords || `GzhiYi's blog`}">
+	<title>{post.fmData.attributes.title}-GzhiYi's Blog</title>
+	<meta name="description" content="{post.fmData.attributes.description || `GzhiYi's Blog`}">
+	<meta name="keywords" content="{post.fmData.attributes.keywords || `GzhiYi's Blog`}">
 </svelte:head>
 <div class='content'>
 	<h1>{post.fmData.attributes.title}</h1>
