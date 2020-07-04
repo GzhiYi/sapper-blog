@@ -59,43 +59,50 @@
 		} catch (error) {
 			console.log('import zoom error', error)
 		}
-		new Valine({
-			el: '#vcomments',
-			appId: 'jMRbNJRVqVMPkivFo08DMhO3-gzGzoHsz',
-			appKey: 'umugMHpa6HfcC81tB6dl8TiE',
-			placeholder: '欢迎评论留言，我都会看的～',
-			meta: ['nick', 'mail'],
-			path: location.pathname
-		})
+		if (Valine) {
+			new Valine({
+				el: '#vcomments',
+				appId: 'jMRbNJRVqVMPkivFo08DMhO3-gzGzoHsz',
+				appKey: 'umugMHpa6HfcC81tB6dl8TiE',
+				placeholder: '欢迎评论留言，我都会看的～',
+				meta: ['nick', 'mail'],
+				path: location.pathname
+			})
+		}
 
 		getFinger()
-		ah.proxy({
-			//请求发起前进入
-			onRequest: (config, handler) => {
-				if (config.url.includes('classes/Comment') && config.method === 'POST') {
-					console.log('请求发起前', config.body)
-					fetch(
-						`https://push.techulus.com/api/v1/notify/0429893b-781b-4885-b153-c20b3a5c5049?title=${location.pathname || '文章'}有新回复&body=${config.body.substr(12, 30)}`,
-						{
-							method: 'POST',
-							mode: 'cors',
-							headers: new Headers({
-								'Content-Type': 'application/json'
-							})
-						}
-					)
+		try {
+			ah.proxy({
+				//请求发起前进入
+				onRequest: (config, handler) => {
+					if (config.url.includes('classes/Comment') && config.method === 'POST') {
+						console.log('请求发起前', config.body)
+						fetch(
+							`https://push.techulus.com/api/v1/notify/0429893b-781b-4885-b153-c20b3a5c5049?title=${location.pathname || '文章'}有新回复&body=${config.body.substr(12, 30)}`,
+							{
+								method: 'POST',
+								mode: 'cors',
+								headers: new Headers({
+									'Content-Type': 'application/json'
+								})
+							}
+						)
+					}
+					handler.next(config);
+				},
+				//请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功
+				onError: (err, handler) => {
+						handler.next(err)
+				},
+				//请求成功后进入
+				onResponse: (response, handler) => {
+						handler.next(response)
 				}
-				handler.next(config);
-			},
-			//请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功
-			onError: (err, handler) => {
-					handler.next(err)
-			},
-			//请求成功后进入
-			onResponse: (response, handler) => {
-					handler.next(response)
-			}
-		})
+			})
+		} catch (error) {
+			// catch hook proxy error
+		}
+		
 	})
 	function getFinger() {
 		if (window.requestIdleCallback) {
@@ -188,8 +195,6 @@
 	.content :global(a) {
 		text-decoration: underline !important;
     text-decoration-color: rgba(255, 12, 0, 0.1) !important;
-	}
-	.content :global(a:hover) {
 		color: rgba(255, 12, 0, 0.5);
 	}
 	.content :global(h1) {
@@ -198,7 +203,17 @@
 	.content :global(h2) {
 		font-size: 1.4em;
 		font-weight: 500;
-		margin: 3rem 0 1.5rem;
+		margin: 2rem 0 1.5rem;
+	}
+	.content :global(h3) {
+		font-size: 1.2em;
+		font-weight: 500;
+		margin: 2rem 0 1.5rem;
+	}
+	.content :global(h4) {
+		font-size: 1em;
+		font-weight: 500;
+		margin: 2rem 0 1.5rem;
 	}
 
 	.content :global(pre) {
@@ -208,7 +223,9 @@
 		line-height: 1.2rem;
     font-size: 0.9rem;
     padding: 1rem;
-    border: 2px solid #eee;
+    border: 2px solid rgba(255, 12, 0, 0.1);
+		cursor: text;
+		margin-bottom: 1rem;
 	}
 
 	.content :global(code) {
@@ -255,7 +272,7 @@
 	.desc{
 		color: #757575;
 		font-size: 0.9rem;
-		margin-bottom: 3rem !important;
+		margin-bottom: 2rem !important;
 	}
 	.label {
 		background-color: #f2f2f2;
@@ -269,5 +286,9 @@
 	}
 	.clap-here {
 		margin: 50px 0;
+	}
+	.content :global(img) {
+		border-radius: 4px;
+		margin: 1rem 0;
 	}
 </style>
