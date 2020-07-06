@@ -82,4 +82,7 @@ const compile = () => {
     console.error('error', error)
   }
 }
-module.exports = compile
+module.exports = {
+  getAllFiles,
+  compile
+}

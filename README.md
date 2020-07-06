@@ -29,7 +29,7 @@ npm run deploy
 文章路径为`src/_posts`，在此目录下，运行下面命令将监听markdown文件并生成`routes/blog/_posts.js`。如果项目已在运行的话，可以在本地实时查看文章情况。
 
 ```bash
-node generate.js
+node write.js
 ```
 
 后续会进行更新优化页面样式。

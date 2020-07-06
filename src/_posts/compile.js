@@ -1,2 +1,2 @@
-const compile = require('./config')
-compile()
+const config = require('./config')
+config.compile()
