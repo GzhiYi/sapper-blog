@@ -2,7 +2,7 @@
 title: Element-ui table组件表头sticky
 description: 不用js处理，css实现element-ui表头sticky。
 keywords: element-ui,table,header,表头,sticky,position,overflow hidden
-labels: ['前端']
+labels: ['前端', 'Element']
 date: 2020-05-29
 ---
 
