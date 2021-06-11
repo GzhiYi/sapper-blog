@@ -34,3 +34,12 @@ code {
 		font-size: 16px;
 	}
 }
+.flex {
+	display: flex;
+}
+.items-center {
+	align-items: center;
+}
+.justify-content {
+	justify-content: center;
+}
