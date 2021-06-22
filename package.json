@@ -19,7 +19,7 @@
     "gitalk": "^1.6.2",
     "glob": "^7.1.6",
     "highlight.js": "^10.7.3",
-    "marked": "^1.2.9",
+    "marked": "^2.0.0",
     "pify": "^5.0.0",
     "polka": "next",
     "rollup-plugin-sass": "^1.2.2",
