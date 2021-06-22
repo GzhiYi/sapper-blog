@@ -4,3 +4,4 @@
 yarn-error.log
 /__sapper__/
 src/routes/blog/_posts.js
+src/routes/blog/_rendered/**

@@ -1,10 +1,12 @@
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{post.title}-GzhiYi's blog</title>
+	<meta name="description" content="{post.description || site.description}">
+	<meta name="keywords" content="{post.keywords || site.keywords}">
 </svelte:head>
 <div class="flex">
 	<div class="base">
 		<div class="title">{post.title}</div>
-		<span>{fixDate(post.fmData.attributes.date)}</span>
+		<span>{post.date}</span>
 	</div>
 	<div class="content">{@html post.html}</div>
 </div>
@@ -27,7 +29,32 @@
 </script>
 
 <script lang="ts">
-	export let post: { slug: string; title: string, html: any, fmData: any };
+	import { onMount } from 'svelte'
+	import config from '../../config'
+
+	let zoom = null
+
+	onMount(() => {
+		try {
+			import('../../../static/medium-zoom.esm.js').then(mediumZoom => {
+				zoom = mediumZoom.default('[data-zoomable]')
+			})
+		} catch (error) {
+			console.log('import zoom error', error)
+		}
+	})
+
+	export let post: {
+		title: string,
+		description: string,
+		keywords: string,
+		labels: any,
+		date: string,
+		path: string,
+		slug: string,
+		html: string
+	}
+	export const site = config.site
 </script>
 
 <style>

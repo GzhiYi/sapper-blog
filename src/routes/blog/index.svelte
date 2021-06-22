@@ -7,7 +7,16 @@
 </script>
 
 <script lang="ts">
-	export let posts: { slug: string; title: string, html: any }[];
+	export let posts: {
+		title: string,
+		description: string,
+		keywords: string,
+		labels: any,
+		date: string,
+		path: string,
+		slug: string,
+		html: string
+	}[];
 </script>
 
 <style>

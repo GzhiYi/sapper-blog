@@ -7,7 +7,18 @@
 </script>
 
 <script lang="ts">
-	export let posts: { slug: string; title: string, html: any }[];
+	import config from '../config.js'
+	export let posts: {
+		title: string,
+		description: string,
+		keywords: string,
+		labels: any,
+		date: string,
+		path: string,
+		slug: string,
+		html: string
+	}[]
+	export const site = config.site
 </script>
 
 <style>
@@ -18,7 +29,9 @@
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>{site.title}</title>
+	<meta name="description" content={site.description}>
+	<meta name="keywords" content={site.keywords}>
 </svelte:head>
 
 
