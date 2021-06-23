@@ -3,12 +3,15 @@ const fs = require('fs')
 const path = require('path')
 const fm = require('front-matter')
 const chokidar = require('chokidar')
-const watcher = chokidar.watch('src/posts')
 const dayjs = require('dayjs')
 const marked = require('marked')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
+
+const watcher = null
+
+if (dev) watcher = chokidar.watch('src/posts')
 
 const renderer = new marked.Renderer()
 
