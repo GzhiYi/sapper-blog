@@ -9,7 +9,7 @@ const marked = require('marked')
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 
-const watcher = null
+let watcher = null
 
 if (dev) watcher = chokidar.watch('src/posts')
 
@@ -31,7 +31,7 @@ renderer.image = function (
   } else {
     renderSize = ''
   }
-  return `<img align="center" style="width: 100%;" data-zoomable src="${href}" alt="${text}" ${renderSize}>`
+  return `<img align="center" style="width: 100%;margin-bottom: 20px;border-radius: 8px;background: #f8fdf3;" data-zoomable src="${href}" alt="${text}" ${renderSize}>`
 }
 renderer.link = function (
   href,
@@ -45,7 +45,6 @@ marked.setOptions({
   renderer,
   highlight: function (code) {
     const hljs = require('highlight.js')
-    // const validLanguage = hljs.getLanguage(language) ? language : 'plaintext'
     return hljs.highlightAuto(code).value
   },
   pedantic: false,
