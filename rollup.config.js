@@ -20,7 +20,7 @@ const onwarn = (warning, onwarn) =>
 onwarn(warning)
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-require('./src/posts/render').render()
+require('./src/posts/render')
 
 export default {
   client: {

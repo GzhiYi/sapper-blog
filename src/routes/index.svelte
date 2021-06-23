@@ -44,3 +44,4 @@
 		<li><a rel="prefetch" href="blog/{post.slug}">{post.title}</a></li>
 	{/each}
 </ul>
+<div class="push" on:click={pushCode}>Push your changes</div>

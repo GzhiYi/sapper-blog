@@ -2,8 +2,13 @@
 const fs = require('fs')
 const path = require('path')
 const fm = require('front-matter')
+const chokidar = require('chokidar')
+const watcher = chokidar.watch('src/posts')
 const dayjs = require('dayjs')
 const marked = require('marked')
+
+const mode = process.env.NODE_ENV
+const dev = mode === 'development'
 
 const renderer = new marked.Renderer()
 
@@ -64,6 +69,7 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
 }
 
 const render = () => {
+  console.log('!!Ready to generate _posts.js!!')
   try {
     const dirs = getAllFiles('src/posts')
     let posts = []
@@ -89,14 +95,58 @@ const render = () => {
     posts = posts.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1)
     const exportString = `export default ${JSON.stringify(posts)}`
     fs.writeFile('src/routes/blog/_posts.js', exportString, err => {
-      if (err) return console.log('生成_posts.js失败', err)
-      console.log('已生成_posts.js')
+      if (err) return console.log('!!fail to generate _posts.js!!', err)
+      console.log('!!_posts.js was generated!!')
     })
   } catch (error) {
     console.error('error', error)
   }
 }
-module.exports = {
-  getAllFiles,
-  render
+
+const generateInfo = (event, path) => {
+  if (event === 'add') {
+    const fileData = fs.readFileSync(`./${path}`, 'utf-8')
+    if (fileData === '') {
+      // 新建了一个markdown文件
+      const outPutContent =
+`---
+title: 
+description: 
+keywords: 
+labels: []
+date: ${dayjs(new Date()).format('YYYY-MM-DD')}
+---`
+      fs.writeFile(path, outPutContent, err => {
+        if (err) return console.log('填充文本失败', err)
+      })
+      console.log('you add new file', path)
+    }
+  }
+}
+const onGenerate = (event, path) => {
+  console.log('event path', event, path)
+  if (/md|MD/g.test(path)) {
+    generateInfo(event, path)
+  }
+  render()
+}
+
+render()
+
+if (dev) {
+  let isReady = false
+  watcher
+    .on('ready', () =>{
+      console.log('!!Initial scan complete. Ready for changes!!')
+      isReady = true
+    })
+    .on('add', path => {
+      if (isReady) onGenerate('add', path)
+    })
+    .on('change', path => {
+      if (isReady) onGenerate('change', path)
+    })
+    .on('unlink', path => {
+      if (isReady) onGenerate('unlink', path)
+    })
 }
