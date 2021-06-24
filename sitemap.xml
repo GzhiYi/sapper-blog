@@ -9,13 +9,213 @@
 
 <url>
   <loc>https://gzhiyi.top/</loc>
-  <lastmod>2020-06-29T08:52:41+00:00</lastmod>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://gzhiyi.top/blog/</loc>
-  <lastmod>2020-06-29T08:52:41+00:00</lastmod>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2021_06_svelte/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2021_04_ready-back/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_10_apple/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_07_text-ellipsis-title/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_07_boardband/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_vscode-up-down-quickly/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_valine-and-notifications/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_firebase/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_apple-wwdc-2020/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_sapper-github-actions/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_eclipse/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_06_build-blog/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_05_element-ui-table-header-sticky/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020_01_docker-easymock/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_12_docker-nuxtjs/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_11_http-cache/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_09_js-asset-import/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_09_codereview/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_09_mp-env-seperate/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_08_mp-pass/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_06_mp-egg/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_04_history-api/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_04_project-down/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_03_hackintosh/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_02_new-year/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2019_01_chrome-provisional-header/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_12_koa-async/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_12_es6-module/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_11_git-usage-in-work/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_11_qiniu-download-pic/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_10_mp-countdown/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_10_month-pass/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_10_h5-step/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_10_anti-theft/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_05_mp-back/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2018_04_ubuntu-sougou/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2017_12_linux-mint/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2017_11_win10-ubuntu/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2017_11_ubuntu-shadowsocks/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gzhiyi.top/blog/2020-06_build-blog/</loc>
+  <lastmod>2021-06-24T08:42:42+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 

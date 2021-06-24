@@ -1,4 +1,4 @@
 # robots.txt
 User-agent: *
 Disallow: 
-Sitemap: sitemap.xml
+Sitemap: https://gzhiyi.top/sitemap.xml
