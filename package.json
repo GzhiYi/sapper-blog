@@ -8,7 +8,8 @@
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper",
-    "render": "node ./src/posts/render.js"
+    "render": "node ./src/posts/render.js",
+    "deploy": "git add . && git commit -m 'updated blog.' && git push origin main"
   },
   "dependencies": {
     "chokidar": "^3.4.0",
