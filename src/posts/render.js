@@ -5,6 +5,7 @@ const fm = require('front-matter')
 const chokidar = require('chokidar')
 const dayjs = require('dayjs')
 const marked = require('marked')
+const { init } = require('svelte/internal')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -133,6 +134,25 @@ const onGenerate = (event, path) => {
   render()
 }
 
+// 首次使用没有_posts.js文件需要生成等初始化操作
+const initProject = () => {
+  const postsPath = 'src/routes/blog/_posts.js'
+  try {
+    if (!fs.existsSync(postsPath)) {
+      console.log('!!_posts.js not exists!!')
+      fs.writeFile('src/routes/blog/_posts.js', `
+        export default []
+      `, err => {
+        if (err) return console.log('!!fail to generate default _posts.js!!', err)
+        console.log('!!_posts.js was generated!!')
+      })
+    }
+  } catch (error) {
+    console.log('!!check file error!!')
+  }
+}
+
+initProject()
 render()
 
 if (dev) {
