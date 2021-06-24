@@ -13,15 +13,25 @@
 </div>
 <div class="content">{@html post.html}</div>
 
+<div class="contact">
+	<div>如果你对这页内容有疑问，欢迎联系我！</div>
+	<a target="_blank" href="mailto:zhiyi.gong@outlook.com?subject=【重要】{post.title}&body=gzhiyi.top/blog/{post.slug}">
+		邮箱
+	</a>
+	<br>
+	<a target="_blank" href="https://github.com/gzhiyi">
+		github
+	</a>
+</div>
+
 <script context="module" lang="ts">
 	export async function preload({ params }) {
-		const res = await this.fetch(`blog/${params.slug}.json`);
-		console.log(res)
-		const data = await res.json();
+		const res = await this.fetch(`blog/${params.slug}.json`)
+		const data = await res.json()
 		if (res.status === 200) {
-			return { post: data };
+			return { post: data }
 		} else {
-			this.error(res.status, data.message);
+			this.error(res.status, data.message)
 		}
 	}
 </script>
@@ -51,7 +61,6 @@
 		slug: string,
 		html: string
 	}
-	console.log(post)
 	export const site = config.site
 </script>
 
@@ -74,6 +83,9 @@
 	color: #3C3C3C;
 	padding: 36px 36px 236px 200px;
 	max-width: 1000px;
+}
+.contact {
+	padding: 36px 36px 236px 200px;
 }
 
 :global(pre) {
