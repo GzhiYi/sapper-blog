@@ -16,7 +16,7 @@ npm run dev # 开启开发模式，会监听src/posts下markdown文件的变更
 执行部署命令：
 
 ```bash
-npm run deploy # 通过git提交到main目录并触发github actions部署。部署完成推送使用的是bark，推送需要token，可以忽略。
+npm run publish # 通过git提交到main目录并触发github actions部署。部署完成推送使用的是bark，推送需要token，可以忽略。
 ```
 
 1. 在github远端仓库新建一个分支为：gh-pages。
