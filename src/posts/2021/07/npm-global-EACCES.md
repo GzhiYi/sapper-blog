@@ -1,8 +1,8 @@
 ---
 title: npm全局安装package出现EACCES permissions
 description: npm全局安装包的时候有权限问题，提示permissions denied，尝试修改用户权限并未生效
-keywords: 
-labels: [npm, linux, global,全局安装,权限,permission,denied,用户]
+keywords: [npm, linux, global,全局安装,权限,permission,denied,用户]
+labels: npm
 date: 2021-07-16
 ---
 
